@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Table with Charts</title>
+    <link rel="stylesheet" href="/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            /* background-color: #f5f5f5; */
+            color: #333;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Charts and Canvas */
+        canvas {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .chart-container {
+            display: none;
+            padding: 15px;
+            /* background-color: #fff; */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        /* Filters and Buttons */
+        #filters {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        select, button {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Company Boxes */
+        .company-box {
+            cursor: pointer;
+            border: 1px solid #ccc;
+            padding: 3px;
+            margin-bottom: 10px;
+            width: fit-content;
+            display: inline-block;
+            margin-right: 10px;
+            /* background-color: #f9f9f9; */
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .company-box:hover {
+            background-color: #f2f2f2;
+        }
+
+        /* Company Tables */
+        .company-table {
+            display: none;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        /* Flex Container for Company Filters */
+        #companyFilters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Heading Styles */
+        h1, h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        /* Animation for Fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Apply fade-in animation to chart containers */
+        .chart-container {
+            animation: fadeIn 0.5s ease-out;
+        }
+        #dataTable{
+            display:none;
+        }
+        h1{
+            color: orange;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        canvas {
+    width: 80% !important; /* Ensure canvas takes the full width of its container */
+    height: 470px !important; /* Auto height for responsiveness */
+    background-color: #fbe5e5;
+    border-radius: 10px;
+    align-items: center;
+    margin-left: 150px;
+}
+button h2{
+    cursor: pointer;
+    padding: 8px;
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border: none; /* Remove borders */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center text */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    /* margin: 1.5rem; */
+}
+    </style>
+</head>
+<body>
+    <header>
+      
+        <div class="navbar">
+            <div style=" font-size: 2rem; color: orange; font-weight: bolder; cursor: pointer;" class="logo"><a href="/">RMS</a></div>
+            <ul class="links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <!-- <li><a href="/login">Services</a></li> -->
+          <li><a href="/contact">Conatct</a></li>
+        </ul>
+        <a href="/login" class="action_btn">Logout </a>
+        <div class="toggle_btn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    
+      <div class="dropdown_menu ">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <!-- <li><a href="/login">Services</a></li> -->
+        <li><a href="/contact">Conatct</a></li>
+          <li><a href="/login" class="action_btn">Logout </a> </li>
+      </div>
+    </header>
+    <section>
+        <button><a  href="/form">Add New data</a></button>
+       
+    </section>
+
+    <div style=" text-align: center; margin-top: 3rem;" id="filters">
+        <label style="color: white;" for="companyFilter">Select Company:</label>
+        <select id="companyFilter">
+            <% Object.keys(companiesData.years).forEach(year => { %>
+                <% companiesData.years[year].companies.forEach(company => { %>
+                    <option value="<%= `${company.name}-${year}` %>"><%= `${company.name} - ${year}` %></option>
+                <% }); %>
+            <% }); %>
+        </select>
+        <button onclick="applyFilter()">Apply Filter</button>
+    </div>
+
+    <div id="defaultChartContainer" class="chart-container">
+        <h1>RS1(2024)-2024</h1>
+        <canvas id="defaultChart"></canvas>
+    </div>
+
+    <div id="chartsContainer">
+        <% Object.keys(companiesData.years).forEach(year => { %>
+            <% companiesData.years[year].companies.forEach(company => { %>
+                <div class="chart-container" id="<%= `${company.name.replace(/\s+/g, '-').toLowerCase()}-${year}-chart-container` %>">
+                    <h1><%= company.name %> - <%= year %></h1>
+                    <canvas id="<%= `${company.name.replace(/\s+/g, '-').toLowerCase()}-${year}-chart` %>"></canvas>
+                </div>
+            <% }); %>
+        <% }); %>
+    </div>
+
+    <h1>Data in Tables</h1>
+
+    <div id="companyFilters">
+        <% Object.keys(companiesData.years).forEach(year => { %>
+            <% companiesData.years[year].companies.forEach(company => { %>
+                <button class="company-box" data-company="<%= `${company.name}-${year}` %>">
+                    <h2><%= company.name %> - <%= year %></h2>
+                </button>
+            <% }); %>
+        <% }); %>
+    </div>
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Year</th>
+                <th>Month</th>
+                <th>Rice</th>
+                <th>Dal</th>
+                <th>Sugar</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <% for (const year in companiesData.years) { %>
+                <% companiesData.years[year].companies.forEach(company => { %>
+                    <% for (const month in company.data) { %>
+                        <tr>
+                            <td><%= company.name %></td>
+                            <td><%= year %></td>
+                            <td><%= month %></td>
+                            <td><%= company.data[month].Rice %></td>
+                            <td><%= company.data[month].Dal %></td>
+                            <td><%= company.data[month].Sugar %></td>
+
+                        </tr>
+                    <% } %>
+                <% }); %>
+            <% } %>
+        </tbody>
+    </table>
+
+    <div id="companyTables">
+        <% Object.keys(companiesData.years).forEach(year => { %>
+            <% companiesData.years[year].companies.forEach(company => { %>
+                <div class="company-table" id="<%= `${company.name.replace(/\s+/g, '-').toLowerCase()}-${year}-table` %>">
+                    <h1><%= company.name %> - <%= year %></h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Rice</th>
+                                <th>Dal</th>
+                                <th>Sugar</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (const month in company.data) { %>
+                                <tr>
+                                    <td><%= month %></td>
+                                    <td><%= company.data[month].Rice %></td>
+                                    <td><%= company.data[month].Dal %></td>
+                                    <td><%= company.data[month].Sugar %></td>
+
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            <% }); %>
+        <% }); %>
+    </div>
+
+    <script>
+        let companiesData = {
+            years: {}
+        }; // Initialize companiesData with an empty years object
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const table = document.getElementById('dataTable');
+
+            // Iterate through table rows to extract data
+            for (let i = 1; i < table.rows.length; i++) {
+                const company = table.rows[i].cells[0].textContent.trim();
+                const year = table.rows[i].cells[1].textContent.trim();
+                const month = table.rows[i].cells[2].textContent.trim();
+                const Rice = parseFloat(table.rows[i].cells[3].textContent.trim());
+                const Dal = parseFloat(table.rows[i].cells[4].textContent.trim());
+                const Sugar = parseFloat(table.rows[i].cells[5].textContent.trim());
+
+
+                if (!companiesData.years[year]) {
+                    companiesData.years[year] = {
+                        companies: []
+                    };
+                }
+
+                let companyData = companiesData.years[year].companies.find(c => c.name === company);
+
+                if (!companyData) {
+                    companyData = {
+                        name: company,
+                        data: {}
+                    };
+                    companiesData.years[year].companies.push(companyData);
+                }
+
+                companyData.data[month] = {
+                    Rice: Rice,
+                    Dal: Dal,
+                    Sugar: Sugar,
+
+                };
+            }
+
+            function showDefaultChart() {
+                const defaultCompany = 'RS1(2024)';
+                const defaultYear = '2024';
+
+                const defaultContainer = document.getElementById('defaultChartContainer');
+                if (defaultContainer) {
+                    defaultContainer.style.display = 'block';
+                }
+
+                const canvas = document.getElementById('defaultChart');
+                if (canvas) {
+                    const ctx = canvas.getContext('2d');
+                    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+                    const companyData = companiesData.years[defaultYear].companies.find(c => c.name === defaultCompany);
+
+                    if (companyData) {
+                        const datasets = [];
+
+                        // Prepare datasets for each metric
+                        ['Rice','Dal','Sugar'].forEach((metric, index) => {
+                            datasets.push({
+                                label: metric.toUpperCase(),
+                                data: months.map(month => companyData.data[month] ? companyData.data[month][metric] : 0),
+                                backgroundColor: `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},0.2)`,
+                                borderColor: `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},1)`,
+                                borderWidth: 1
+                            });
+                        });
+
+                        const data = {
+                            labels: months,
+                            datasets: datasets
+                        };
+
+                        const options = {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        };
+
+                        // Create new chart instance
+                        window.defaultChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: data,
+                            options: options
+                        });
+                    } else {
+                        console.error("Company data for default chart not found!");
+                    }
+                } else {
+                    console.error("Default canvas not found!");
+                }
+            }
+
+            // Function to update charts based on selected filters
+            window.applyFilter = function() {
+                const selectedOption = document.getElementById('companyFilter').value;
+                const [selectedCompany, selectedYear] = selectedOption.split('-');
+
+                // Hide the default chart when a filter is applied
+                const defaultContainer = document.getElementById('defaultChartContainer');
+                if (defaultContainer) {
+                    defaultContainer.style.display = 'none';
+                }
+
+                const chartContainers = document.querySelectorAll('.chart-container');
+                chartContainers.forEach(container => {
+                    container.style.display = 'none';
+                });
+
+                const selectedContainer = document.getElementById(`${selectedCompany.replace(/\s+/g, '-').toLowerCase()}-${selectedYear}-chart-container`);
+                if (selectedContainer) {
+                    selectedContainer.style.display = 'block';
+                }
+
+                const canvas = document.getElementById(`${selectedCompany.replace(/\s+/g, '-').toLowerCase()}-${selectedYear}-chart`);
+                if (canvas) {
+                    const ctx = canvas.getContext('2d');
+                    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+                    // Find the selected company's data for the selected year
+                    const companyData = companiesData.years[selectedYear].companies.find(c => c.name === selectedCompany);
+
+                    if (companyData) {
+                        const datasets = [];
+
+                        // Prepare datasets for each metric
+                        ['Rice','Dal','Sugar'].forEach((metric, index) => {
+                            datasets.push({
+                                label: metric.toUpperCase(),
+                                data: months.map(month => companyData.data[month] ? companyData.data[month][metric] : 0),
+                                backgroundColor: `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},0.2)`,
+                                borderColor: `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},1)`,
+                                borderWidth: 1
+                            });
+                        });
+
+                        const data = {
+                            labels: months,
+                            datasets: datasets
+                        };
+
+                        const options = {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        };
+
+                        // Clear previous chart instance if exists
+                        if (window.myChart) {
+                            window.myChart.destroy();
+                        }
+
+                        // Create new chart instance
+                        window.myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: data,
+                            options: options
+                        });
+                    } else {
+                        console.error("Company data for selected chart not found!");
+                    }
+                } else {
+                    console.error("Selected canvas not found!");
+                }
+            };
+
+            // Show default chart on page load
+            showDefaultChart();
+
+            // Set default value for companyFilter
+            document.getElementById('companyFilter').value = 'RS1-2024';
+
+            // Add click event listeners to company boxes
+            const companyBoxes = document.querySelectorAll('.company-box');
+            companyBoxes.forEach(box => {
+                box.addEventListener('click', function() {
+                    const companyId = this.getAttribute('data-company');
+                    const companyTable = document.getElementById(`${companyId.replace(/\s+/g, '-').toLowerCase()}-table`);
+                    if (companyTable) {
+                        const allTables = document.querySelectorAll('.company-table');
+                        allTables.forEach(table => {
+                            table.style.display = 'none';
+                        });
+                        companyTable.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

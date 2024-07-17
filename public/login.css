@@ -1,0 +1,300 @@
+
+* {
+
+  box-sizing: border-box;
+  
+}
+body{
+  height:100vh;
+  background-image: url('https://www.graphable.ai/wp-content/uploads/2022/03/bg_06.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  backdrop-filter: blur(5px);
+  overflow-y: hidden;
+}
+section{
+  margin-top: 8rem;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+
+}
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color:#fff;
+  font-size: 1.3rem;
+
+}
+a:hover{
+  color:orange;
+}
+
+/* Header */
+
+header{
+  position: relative;
+  padding: 0 2rem;
+  /* margin-bottom: 0.5rem; */
+}
+
+.navbar{
+  width: 100%;
+  height: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.navbar .logo a{
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navbar .links{
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .toggle_btn{
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: none;
+}
+
+.action_btn{
+  background-color: orange;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer; 
+  transition: scale 0.3 ease;
+  font-size: 1.3rem;
+}
+
+.action_btn:hover{
+  color: #fff;
+  scale: 1.05;
+}
+.action_btn:active{
+  scale: 0.91;
+}
+
+.dropdown_menu{
+  display: none;
+  position: absolute;
+  right: 2rem;
+  top:60px;
+  height: 0;
+  width: 300px;
+  /* background: rgba(0, 0, 0, 0.1); */
+  /* backdrop-filter: blur(15px); */
+  border-radius: 10px;
+  overflow: hidden;
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: rgb(249, 240, 222);
+  z-index: 999;
+
+
+}
+.dropdown_menu.open{
+  height: 230px;
+}
+
+.dropdown_menu li{
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  
+}
+.dropdown_menu li a{
+color: #000;
+font-size: 1rem;
+font-weight: 400;
+}
+
+
+.dropdown_menu .action_btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* border-radius: 20px; */
+}
+
+/* main_section */
+
+#main_section{
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+#main_section h1{
+font-size: 3rem;
+margin-bottom: 1rem;
+}
+
+/* Responsive design */
+
+
+
+.container{
+  width:400px;
+  height: 430px;
+  background: rgba(232, 227, 227, 0.1);
+  /* backdrop-filter: blur(100px); */
+  border-radius: 10px;
+ 
+}
+.container h1{
+  font-size:36px;
+  text-align: center;
+  color: #fbfbfb;
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+}
+.container .input-box{
+  width:70%;
+
+  height:50px;
+  margin:10px 0;
+  display:flex;
+  border:2px solid black;
+  border-radius:40px;
+  /* align-items: center; */
+  margin-left: 3.4rem;
+  margin-top: 1.5rem;
+}
+
+.input-box input{
+  width:100%;
+  height:100%;
+  background: transparent;
+  border:none;
+  outline:none;
+  padding: 10px;
+  color:#fff;
+  font-size: 16px;
+  /* margin-left: 3.4rem; */
+
+}
+
+.input-box ::placeholder{
+  color:#fff;
+  /* margin-left: 3.4rem; */
+
+}
+.input-box i{
+  margin:10px;
+  font-size: 20px;
+
+}
+.remember-forget{
+  display:flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin:-15px 0 ;
+  padding:10px;
+  margin-left: 3.4rem;
+  margin-top: 0.5rem;
+  color: #fefefe;
+
+}
+.remember-forget label input{
+  margin-right: 3px;
+}
+.remember-forget a{
+  color: #fff;
+  text-decoration: none;
+
+}
+.remember-forget a:hover{
+  text-decoration: underline;
+}
+.container .btn{
+  margin-top:10px;
+  width: 70%;
+  height:45px;
+  border: none;
+  outline: none;
+  background: #fff;
+  border-radius: 40px;
+  cursor:pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 3.4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+.container .btn:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container .register-link{
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.container .register-link p a{
+  text-decoration: none;
+  color: #fff;
+}
+.container .register-link p a:hover{
+  text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+  .navbar  .links ,
+  .navbar .action_btn{
+    display: none;
+  }
+  .navbar .toggle_btn{
+    display: block;
+  }
+  .dropdown_menu{
+    display: block;
+
+  }
+
+  .container{
+    position: absolute;
+    top: 16rem;
+    /* width: 98%; */
+  }
+}
+
+
+
+@media (max-width: 576px) {
+.dropdown_menu{
+  left: 2rem;
+  width: unset;
+}
+.container{
+  position: absolute;
+  top: 10rem;
+  width: 98%;
+}
+}

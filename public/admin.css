@@ -1,0 +1,349 @@
+
+
+body {
+
+    /* min-height: 100vh; */
+    /* background-color: #f2f2f2; */
+    background-image: url('https://www.graphable.ai/wp-content/uploads/2022/03/bg_06.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  backdrop-filter: blur(5px);
+ 
+}
+
+
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color:#fff;
+  font-size: 1.3rem;
+
+}
+a:hover{
+  color:orange;
+}
+
+/* Header */
+
+header{
+  position: relative;
+  padding: 0 2rem;
+  margin-bottom: 3rem;
+}
+
+.navbar{
+  width: 100%;
+  height: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.navbar .logo a{
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navbar .links{
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .toggle_btn{
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: none;
+}
+
+.action_btn{
+  background-color: orange;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer; 
+  transition: scale 0.3 ease;
+  font-size: 1.3rem;
+}
+
+.action_btn:hover{
+  color: #fff;
+  scale: 1.05;
+}
+.action_btn:active{
+  scale: 0.91;
+}
+
+.dropdown_menu{
+  display: none;
+  position: absolute;
+  right: 2rem;
+  top:60px;
+  height: 0;
+  width: 300px;
+  /* background: rgba(0, 0, 0, 0.1); */
+  /* backdrop-filter: blur(15px); */
+  border-radius: 10px;
+  overflow: hidden;
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: rgb(249, 240, 222);
+
+}
+.dropdown_menu.open{
+  height: 230px;
+}
+
+.dropdown_menu li{
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  
+}
+.dropdown_menu li a{
+color: #000;
+font-size: 1rem;
+font-weight: 400;
+}
+
+
+.dropdown_menu .action_btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* border-radius: 20px; */
+}
+
+/* main_section */
+
+#main_section{
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+#main_section h1{
+font-size: 3rem;
+margin-bottom: 1rem;
+}
+
+/* Responsive design */
+
+@media (max-width: 992px) {
+  .navbar  .links ,
+  .navbar .action_btn{
+    display: none;
+  }
+  .navbar .toggle_btn{
+    display: block;
+  }
+  .dropdown_menu{
+    display: block;
+
+  }
+}
+
+
+
+@media (max-width: 576px) {
+.dropdown_menu{
+  left: 2rem;
+  width: unset;
+}
+}
+
+
+
+section{
+  font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+
+
+
+#graph-container, #bar-graph-container {
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 20px;
+    transition: max-width 0.5s ease;
+}
+
+.company {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border: none; /* Remove borders */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center text */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    margin: 1.5rem;
+}
+
+.company:hover {
+    background-color: white; /* White background color */
+    color: black; /* Black text color on hover */
+}
+
+#company-info, #company-data {
+    width: 110%;
+    max-width: 850px;
+    transition: max-width 0.5s ease;
+    color: #000;
+    margin-left: 3rem;
+}
+
+#company-data {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+}
+
+#month-filter {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 3rem;
+}
+
+#month-filter:hover {
+  background-color: #f5f5f5;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 8px;
+  
+}
+
+/* Adjust styles based on your design preferences */
+
+
+canvas {
+    width: 100% !important; /* Ensure canvas takes the full width of its container */
+    height: 400px !important; /* Auto height for responsiveness */
+    background-color: #fbe5e5;
+    border-radius: 10px;
+    align-items: center;
+}
+
+/* Add this to your existing CSS or create a new CSS file */
+
+#company-data {
+  text-align: center;
+}
+
+#company-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#company-table th, #company-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#company-table th {
+  background-color: #f2f2f2;
+}
+
+#company-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#company-table tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    #graph-container, #bar-graph-container, #company-info {
+        max-width: 100%;
+    }
+    #company-data {
+      width: 90%; /* Full width for smaller devices */
+      margin: 8px;
+      margin-bottom: 20px;
+    }
+
+    .company {
+        flex-basis: 48%; /* Adjusting the width for medium devices */
+        margin: 1%;
+        font-size: 14px; /* Smaller font size on medium devices */
+    }
+    canvas {
+    width: 100% !important; /* Ensure canvas takes the full width of its container */
+    height: 250px !important; /* Auto height for responsiveness */
+}
+}
+
+@media (max-width: 576px) {
+    body {
+        background-color: #e6e6e6; /* Slight change in background for smaller devices */
+    }
+
+    #graph-container, #bar-graph-container, #company-info{
+        width: 90%; /* Full width for smaller devices */
+        margin: 8px;
+        margin-bottom: 20px;
+    }
+
+    #company-data {
+      width: auto; /* Full width for smaller devices */
+      margin-left: 4px;
+      margin-right: 4px;
+      margin-bottom: 20px;
+    }
+    .company {
+        flex-basis: 100%; /* Full width buttons for small devices */
+        margin: 8px;
+        margin-bottom: 20px;
+        
+        font-size: 12px; /* Even smaller font size on small devices */
+    }
+    canvas {
+    width: 100% !important; /* Ensure canvas takes the full width of its container */
+    height: 250px !important; /* Auto height for responsiveness */
+}
+}
+
+/* Canvas specific styles */
+
+
+  

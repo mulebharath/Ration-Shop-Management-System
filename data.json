@@ -1,0 +1,537 @@
+{
+  "years": {
+    "2023": {
+      "companies": [
+        {
+          "name": "RS1(2023)",
+          "data": {
+            "January": {
+              "Rice": 350,
+              "Dal": 150,
+              "Sugar": 150
+            },
+            "February": {
+              "Rice": 250,
+              "Dal": 175,
+              "Sugar": 125
+            },
+            "March": {
+              "Rice": 300,
+              "Dal": 200,
+              "Sugar": 175
+            },
+            "April": {
+              "Rice": 400,
+              "Dal": 225,
+              "Sugar": 200
+            },
+            "May": {
+              "Rice": 500,
+              "Dal": 250,
+              "Sugar": 175
+            },
+            "June": {
+              "Rice": 550,
+              "Dal": 275,
+              "Sugar": 150
+            },
+            "July": {
+              "Rice": 600,
+              "Dal": 300,
+              "Sugar": 125
+            },
+            "August": {
+              "Rice": 650,
+              "Dal": 325,
+              "Sugar": 100
+            },
+            "September": {
+              "Rice": 700,
+              "Dal": 350,
+              "Sugar": 150
+            },
+            "October": {
+              "Rice": 750,
+              "Dal": 375,
+              "Sugar": 175
+            },
+            "November": {
+              "Rice": 800,
+              "Dal": 400,
+              "Sugar": 200
+            },
+            "December": {
+              "Rice": 850,
+              "Dal": 425,
+              "Sugar": 225
+            }
+          }
+        },
+        {
+          "name": "RS2(2023)",
+          "data": {
+            "January": {
+              "Rice": 450,
+              "Dal": 175,
+              "Sugar": 200
+            },
+            "February": {
+              "Rice": 400,
+              "Dal": 200,
+              "Sugar": 175
+            },
+            "March": {
+              "Rice": 375,
+              "Dal": 225,
+              "Sugar": 150
+            },
+            "April": {
+              "Rice": 350,
+              "Dal": 250,
+              "Sugar": 125
+            },
+            "May": {
+              "Rice": 325,
+              "Dal": 275,
+              "Sugar": 100
+            },
+            "June": {
+              "Rice": 300,
+              "Dal": 300,
+              "Sugar": 150
+            },
+            "July": {
+              "Rice": 275,
+              "Dal": 325,
+              "Sugar": 175
+            },
+            "August": {
+              "Rice": 250,
+              "Dal": 350,
+              "Sugar": 200
+            },
+            "September": {
+              "Rice": 225,
+              "Dal": 375,
+              "Sugar": 225
+            },
+            "October": {
+              "Rice": 200,
+              "Dal": 400,
+              "Sugar": 250
+            },
+            "November": {
+              "Rice": 175,
+              "Dal": 425,
+              "Sugar": 275
+            },
+            "December": {
+              "Rice": 150,
+              "Dal": 450,
+              "Sugar": 300
+            }
+          }
+        },
+        {
+          "name": "RS3(2023)",
+          "data": {
+            "January": {
+              "Rice": 300,
+              "Dal": 200,
+              "Sugar": 175
+            },
+            "February": {
+              "Rice": 350,
+              "Dal": 225,
+              "Sugar": 150
+            },
+            "March": {
+              "Rice": 400,
+              "Dal": 250,
+              "Sugar": 125
+            },
+            "April": {
+              "Rice": 450,
+              "Dal": 275,
+              "Sugar": 100
+            },
+            "May": {
+              "Rice": 500,
+              "Dal": 300,
+              "Sugar": 150
+            },
+            "June": {
+              "Rice": 550,
+              "Dal": 325,
+              "Sugar": 175
+            },
+            "July": {
+              "Rice": 600,
+              "Dal": 350,
+              "Sugar": 200
+            },
+            "August": {
+              "Rice": 650,
+              "Dal": 375,
+              "Sugar": 225
+            },
+            "September": {
+              "Rice": 700,
+              "Dal": 400,
+              "Sugar": 250
+            },
+            "October": {
+              "Rice": 750,
+              "Dal": 425,
+              "Sugar": 275
+            },
+            "November": {
+              "Rice": 800,
+              "Dal": 450,
+              "Sugar": 300
+            },
+            "December": {
+              "Rice": 850,
+              "Dal": 475,
+              "Sugar": 325
+            }
+          }
+        },
+        {
+          "name": "RS4(2023)",
+          "data": {
+            "January": {
+              "Rice": 400,
+              "Dal": 225,
+              "Sugar": 100
+            },
+            "February": {
+              "Rice": 450,
+              "Dal": 250,
+              "Sugar": 150
+            },
+            "March": {
+              "Rice": 500,
+              "Dal": 275,
+              "Sugar": 175
+            },
+            "April": {
+              "Rice": 550,
+              "Dal": 300,
+              "Sugar": 200
+            },
+            "May": {
+              "Rice": 600,
+              "Dal": 325,
+              "Sugar": 225
+            },
+            "June": {
+              "Rice": 650,
+              "Dal": 350,
+              "Sugar": 250
+            },
+            "July": {
+              "Rice": 700,
+              "Dal": 375,
+              "Sugar": 275
+            },
+            "August": {
+              "Rice": 750,
+              "Dal": 400,
+              "Sugar": 300
+            },
+            "September": {
+              "Rice": 800,
+              "Dal": 425,
+              "Sugar": 325
+            },
+            "October": {
+              "Rice": 850,
+              "Dal": 450,
+              "Sugar": 350
+            },
+            "November": {
+              "Rice": 900,
+              "Dal": 475,
+              "Sugar": 375
+            },
+            "December": {
+              "Rice": 950,
+              "Dal": 500,
+              "Sugar": 400
+            }
+          }
+        },
+        {
+          "name": "RS5(2023)",
+          "data": {
+            "January": {
+              "Rice": 600,
+              "Dal": 250,
+              "Sugar": 175
+            },
+            "February": {
+              "Rice": 650,
+              "Dal": 275,
+              "Sugar": 150
+            },
+            "March": {
+              "Rice": 700,
+              "Dal": 300,
+              "Sugar": 125
+            },
+            "April": {
+              "Rice": 750,
+              "Dal": 325,
+              "Sugar": 100
+            },
+            "May": {
+              "Rice": 800,
+              "Dal": 350,
+              "Sugar": 150
+            },
+            "June": {
+              "Rice": 850,
+              "Dal": 375,
+              "Sugar": 175
+            },
+            "July": {
+              "Rice": 900,
+              "Dal": 400,
+              "Sugar": 200
+            },
+            "August": {
+              "Rice": 950,
+              "Dal": 425,
+              "Sugar": 225
+            },
+            "September": {
+              "Rice": 1000,
+              "Dal": 450,
+              "Sugar": 250
+            },
+            "October": {
+              "Rice": 1050,
+              "Dal": 475,
+              "Sugar": 275
+            },
+            "November": {
+              "Rice": 1100,
+              "Dal": 500,
+              "Sugar": 300
+            },
+            "December": {
+              "Rice": 1150,
+              "Dal": 525,
+              "Sugar": 325
+            }
+          }
+        }
+      ]
+    },
+    "2024": {
+      "companies": [
+        {
+          "name": "RS1(2024)",
+          "data": {
+            "January": {
+              "Rice": 400,
+              "Dal": 225,
+              "Sugar": 100
+            },
+            "February": {
+              "Rice": 450,
+              "Dal": 250,
+              "Sugar": 150
+            },
+            "March": {
+              "Rice": 500,
+              "Dal": 275,
+              "Sugar": 175
+            },
+            "April": {
+              "Rice": 550,
+              "Dal": 300,
+              "Sugar": 200
+            },
+            "May": {
+              "Rice": 600,
+              "Dal": 325,
+              "Sugar": 225
+            },
+            "June": {
+              "Rice": 650,
+              "Dal": 350,
+              "Sugar": 250
+            },
+            "July": {
+              "Rice": 700,
+              "Dal": 375,
+              "Sugar": 275
+            }
+          }
+        },
+        {
+          "name": "RS2(2024)",
+          "data": {
+            "January": {
+              "Rice": 500,
+              "Dal": 275,
+              "Sugar": 150
+            },
+            "February": {
+              "Rice": 550,
+              "Dal": 300,
+              "Sugar": 125
+            },
+            "March": {
+              "Rice": 600,
+              "Dal": 325,
+              "Sugar": 100
+            },
+            "April": {
+              "Rice": 650,
+              "Dal": 350,
+              "Sugar": 150
+            },
+            "May": {
+              "Rice": 700,
+              "Dal": 375,
+              "Sugar": 175
+            },
+            "June": {
+              "Rice": 750,
+              "Dal": 400,
+              "Sugar": 200
+            },
+            "July": {
+              "Rice": 800,
+              "Dal": 425,
+              "Sugar": 225
+            }
+          }
+        },
+        {
+          "name": "RS3(2024)",
+          "data": {
+            "January": {
+              "Rice": 600,
+              "Dal": 325,
+              "Sugar": 100
+            },
+            "February": {
+              "Rice": 650,
+              "Dal": 350,
+              "Sugar": 150
+            },
+            "March": {
+              "Rice": 700,
+              "Dal": 375,
+              "Sugar": 175
+            },
+            "April": {
+              "Rice": 750,
+              "Dal": 400,
+              "Sugar": 200
+            },
+            "May": {
+              "Rice": 800,
+              "Dal": 425,
+              "Sugar": 225
+            },
+            "June": {
+              "Rice": 850,
+              "Dal": 450,
+              "Sugar": 250
+            },
+            "July": {
+              "Rice": 900,
+              "Dal": 475,
+              "Sugar": 275
+            }
+          }
+        },
+        {
+          "name": "RS4(2024)",
+          "data": {
+            "January": {
+              "Rice": 800,
+              "Dal": 425,
+              "Sugar": 200
+            },
+            "February": {
+              "Rice": 850,
+              "Dal": 450,
+              "Sugar": 225
+            },
+            "March": {
+              "Rice": 900,
+              "Dal": 475,
+              "Sugar": 250
+            },
+            "April": {
+              "Rice": 950,
+              "Dal": 500,
+              "Sugar": 275
+            },
+            "May": {
+              "Rice": 1000,
+              "Dal": 525,
+              "Sugar": 300
+            },
+            "June": {
+              "Rice": 1050,
+              "Dal": 550,
+              "Sugar": 325
+            },
+            "July": {
+              "Rice": 1100,
+              "Dal": 575,
+              "Sugar": 350
+            }
+          }
+        },
+        {
+          "name": "RS5(2024)",
+          "data": {
+            "January": {
+              "Rice": 1000,
+              "Dal": 525,
+              "Sugar": 300
+            },
+            "February": {
+              "Rice": 1050,
+              "Dal": 550,
+              "Sugar": 325
+            },
+            "March": {
+              "Rice": 1100,
+              "Dal": 575,
+              "Sugar": 350
+            },
+            "April": {
+              "Rice": 1150,
+              "Dal": 600,
+              "Sugar": 375
+            },
+            "May": {
+              "Rice": 1200,
+              "Dal": 625,
+              "Sugar": 400
+            },
+            "June": {
+              "Rice": 1250,
+              "Dal": 650,
+              "Sugar": 425
+            },
+            "July": {
+              "Rice": 1300,
+              "Dal": 675,
+              "Sugar": 450
+            }
+          }
+        }
+      ]
+    }
+  }
+}
